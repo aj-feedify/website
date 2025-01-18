@@ -1,0 +1,43 @@
+@import url('../../style/utils/link.css');
+@import url('../../style/utils/animations.css');
+
+.home_about {
+  height: 100%;
+}
+
+.home_img {
+  height: var(--home-img-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-right: 20px;
+  scale: 0.7;
+  opacity: 0;
+  filter: blur(10px);
+  animation: scaleTo1 0.5s ease forwards, opaTo1 0.5s ease forwards,
+    filterBlurTo0 0.5s ease forwards;
+}
+
+.home_btn {
+  width: calc(min(var(--home-img-size), 100%) + 40px);
+  opacity: 0;
+  transform: translateY(100%);
+  animation: opaTo1 0.5s 0.5s ease forwards,
+    translateYTo0 0.5s 0.5s ease forwards;
+
+  & > button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home_img {
+    width: var(--home-img-size);
+    height: var(--home-img-size);
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+:root {
+  --home-img-size: 300px;
+}
