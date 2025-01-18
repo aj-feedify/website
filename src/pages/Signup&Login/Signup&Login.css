@@ -1,0 +1,11 @@
+.signup_login_con form {
+  width: min(var(--signup-login-form-size), 100%);
+}
+
+.signup_login_subtext {
+  font-size: 0.9em;
+}
+
+:root {
+  --signup-login-form-size: 300px;
+}

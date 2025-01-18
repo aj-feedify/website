@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.clr {
+  color: var(--link-text-color);
+}
+
+a.clr_h:hover {
+  color: var(--link-text-hover-color);
+}

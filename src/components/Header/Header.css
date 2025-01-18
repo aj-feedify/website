@@ -1,0 +1,36 @@
+@import url('../../style/utils/link.css');
+@import url('../../style/utils/list.css');
+
+.container_header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-opa-color);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.container_header > .container {
+  background-color: transparent;
+}
+
+.header {
+  height: 80px;
+}
+
+.header_content {
+  width: 100%;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header_links a {
+  color: var(--text-opa-color);
+
+  &:hover {
+    color: var(--text-color);
+  }
+}
