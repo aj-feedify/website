@@ -1,20 +1,32 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
 import Input from '../../../components/Input/Input/Input'
-import {
-  validName,
-  validPassword,
-  validUsername,
-} from '../../../scripts/validator/user'
+import { validSignupUser } from '../../../scripts/validator/user'
+import { signupUser } from '../../../modules/user'
+import { saveToLocalDb } from '../../../scripts/localDb/localDb'
 import '../Signup&Login.css'
 
 export default function Signup() {
   const [form, setForm] = useState({})
   const [disabled, setDisabled] = useState({ btn: true, con: false })
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   async function signup(e) {
     e.preventDefault()
+
+    setDisabled({ ...disabled, con: true })
+    const res = await signupUser(form.name, form.username, form.password)
+
+    if (!res.ok) {
+      setDisabled({ ...disabled, con: false })
+      setError(res.message)
+      return
+    }
+
+    saveToLocalDb('user_id', res.data.id)
+    navigate('/')
   }
 
   function handleChanges(e) {
@@ -23,19 +35,18 @@ export default function Signup() {
       [e.target.getAttribute('name')]: e.target.value,
     }
     setForm(newForm)
+    setError('')
 
-    const isValidName = validName(newForm.name || '')
-    const isValidUsername = validUsername(newForm.username || '')
-    const isValidPassword = validPassword(newForm.password || '')
+    const isValidUser = validSignupUser(
+      newForm.name,
+      newForm.username,
+      newForm.password,
+      newForm.confirm_password
+    )
 
     setDisabled({
       ...disabled,
-      btn: !(
-        isValidName.ok &&
-        isValidUsername.ok &&
-        isValidPassword.ok &&
-        newForm.password === newForm.confirm_password
-      ),
+      btn: !isValidUser.ok,
     })
   }
 
@@ -73,6 +84,7 @@ export default function Signup() {
             autoComplete="new-password"
             onChange={handleChanges}
           />
+          {error && <div className="signup_login_error_txt">{error}</div>}
           <Button onClick={signup} disabled={disabled.btn}>
             Signup
           </Button>

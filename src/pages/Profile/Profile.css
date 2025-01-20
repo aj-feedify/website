@@ -1,0 +1,73 @@
+.profile_con {
+  width: min(var(--profile-con-size), 100%);
+}
+
+.profile_con > *:not(.profile_avatar) {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-color: var(--input-bd-color);
+
+    & button {
+      opacity: 1;
+    }
+  }
+}
+
+.profile_avatar {
+  width: var(--profile-avatar-size);
+  height: var(--profile-avatar-size);
+  border-radius: 50%;
+  background-color: var(--profile-avatar-bg-color);
+  font-size: 2.5em;
+}
+
+.profile_name button {
+  padding: 5px;
+  opacity: 0;
+
+  &:first-child {
+    opacity: 0 !important;
+  }
+}
+
+.profile_change_name {
+  border-bottom: 1px solid var(--input-bd-color) !important;
+}
+
+.profile_change_name_input_con,
+.profile_change_name_save_btn {
+  width: 100%;
+}
+
+.profile_change_name input {
+  border-color: transparent;
+}
+
+.profile_change_name button {
+  opacity: 1;
+  padding: 5px;
+  height: max-content;
+}
+
+.profile_change_name_error {
+  color: var(--red-text-color);
+}
+
+.profile_name span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.profile_username {
+  font-size: 0.9em;
+  color: var(--text-opa-color);
+}
+
+:root {
+  --profile-con-size: 300px;
+  --profile-avatar-size: 100px;
+}

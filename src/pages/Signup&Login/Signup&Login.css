@@ -6,6 +6,11 @@
   font-size: 0.9em;
 }
 
+.signup_login_error_txt {
+  text-align: center;
+  color: var(--red-text-color);
+}
+
 :root {
   --signup-login-form-size: 300px;
 }

@@ -40,8 +40,8 @@ img {
 }
 
 *[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
+  opacity: 0.5 !important;
+  pointer-events: none !important;
 }
 
 @media (max-width: 768px) {
