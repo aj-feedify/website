@@ -1,16 +1,32 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
 import Input from '../../../components/Input/Input/Input'
-import { validPassword, validUsername } from '../../../scripts/validator/user'
+import { validLoginUser } from '../../../scripts/validator/user'
+import { loginUser } from '../../../modules/user'
+import { saveToLocalDb } from '../../../scripts/localDb/localDb'
 import '../Signup&Login.css'
 
 export default function Login() {
   const [form, setForm] = useState({})
   const [disabled, setDisabled] = useState({ btn: true, con: false })
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   async function login(e) {
     e.preventDefault()
+
+    setDisabled({ ...disabled, con: true })
+    const res = await loginUser(form.username, form.password)
+
+    if (!res.ok) {
+      setDisabled({ ...disabled, con: false })
+      setError(res.message)
+      return
+    }
+
+    saveToLocalDb('user_id', res.data.id)
+    navigate('/')
   }
 
   function handleChanges(e) {
@@ -19,13 +35,13 @@ export default function Login() {
       [e.target.getAttribute('name')]: e.target.value,
     }
     setForm(newForm)
+    setError('')
 
-    const isValidUsername = validUsername(newForm.username || '')
-    const isValidPassword = validPassword(newForm.password || '')
+    const isValidUser = validLoginUser(newForm.username, newForm.password)
 
     setDisabled({
       ...disabled,
-      btn: !(isValidUsername.ok && isValidPassword.ok),
+      btn: !isValidUser.ok,
     })
   }
 
@@ -50,6 +66,7 @@ export default function Login() {
             autoComplete="current-password"
             onChange={handleChanges}
           />
+          {error && <div className="signup_login_error_txt">{error}</div>}
           <Button onClick={login} disabled={disabled.btn}>
             Login
           </Button>
@@ -57,7 +74,7 @@ export default function Login() {
         <div></div>
         <div className="signup_login_subtext">
           Do not have an account?{' '}
-          <Link to="/signup" className="clr clr_h">
+          <Link to="/sign-up" className="clr clr_h">
             Create one
           </Link>
         </div>

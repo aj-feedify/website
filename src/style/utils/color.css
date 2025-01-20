@@ -5,6 +5,8 @@
 :root {
   --bg-color: light-dark(#ffffff, #222222);
   --bg-opa-color: light-dark(#ffffff80, #22222280);
+  --bg-contrast-color: light-dark(#dddddd, #444444);
+  --bg-contrast-hover-color: light-dark(#bbbbbb, #333333);
 }
 
 :root {
@@ -23,6 +25,14 @@
 :root {
   --link-text-color: light-dark(#1610c1, #8b96e7);
   --link-text-hover-color: light-dark(#4541a8, #6e7ded);
+}
+
+:root {
+  --red-text-color: light-dark(#dd7171, #ce5151);
+}
+
+:root {
+  --profile-avatar-bg-color: light-dark(#9ca4f3, #2e2a8c);
 }
 
 /* btn */

@@ -9,7 +9,7 @@ export default function Home() {
       <div className="container container_content">
         <div className="home_about list_y d_f_ce">
           <img className="home_img" src={logo} alt="Feedify logo" />
-          <Link className="home_btn" to={'/extension'}>
+          <Link className="home_btn" to={'/'}>
             <Button>Explore</Button>
           </Link>
         </div>

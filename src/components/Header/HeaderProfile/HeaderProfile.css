@@ -1,0 +1,15 @@
+.header_profile {
+  width: var(--header-profile-size);
+  height: var(--header-profile-size);
+  border-radius: 50%;
+  background-color: var(--profile-avatar-bg-color);
+  cursor: pointer;
+}
+
+.header_profile_con {
+  position: relative;
+}
+
+:root {
+  --header-profile-size: 30px;
+}
