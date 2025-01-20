@@ -1,0 +1,49 @@
+:root {
+  color-scheme: light dark;
+}
+
+:root {
+  --bg-color: light-dark(#ffffff, #222222);
+  --bg-opa-color: light-dark(#ffffff80, #22222280);
+  --bg-contrast-color: light-dark(#dddddd, #444444);
+  --bg-contrast-hover-color: light-dark(#bbbbbb, #333333);
+}
+
+:root {
+  --selection-bg-color: light-dark(#00000033, #ffffff33);
+}
+
+:root {
+  --text-color: light-dark(#111111, #eeeeee);
+  --text-opa-color: light-dark(#00000080, #ffffff80);
+}
+
+:root {
+  --input-bd-color: light-dark(#666666, #cccccc);
+}
+
+:root {
+  --link-text-color: light-dark(#1610c1, #8b96e7);
+  --link-text-hover-color: light-dark(#4541a8, #6e7ded);
+}
+
+:root {
+  --red-text-color: light-dark(#dd7171, #ce5151);
+}
+
+:root {
+  --profile-avatar-bg-color: light-dark(#9ca4f3, #2e2a8c);
+}
+
+/* btn */
+:root {
+  --btn-hover-bg-color: light-dark(#d9dbf3, #2e2a8c);
+  --btn-border-color: light-dark(#2e2a8c, #6e7ded);
+  --btn-active-border-color: light-dark(#2545c5, #8faeff);
+  --btn-active-bg-color: light-dark(#c0bef1, #1c235a);
+}
+
+/* main */
+:root {
+  --main-text-color: light-dark(#2e2a8c, #6e7ded);
+}

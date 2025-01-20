@@ -1,0 +1,13 @@
+input,
+textarea {
+  border: none;
+  border-bottom: 1px solid var(--input-bd-color);
+  padding: 8px 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
