@@ -46,7 +46,7 @@ export async function updateUserName(newName) {
   const userId = getUserId()
   if (!userId.ok) return userId
 
-  const userData = { id: userId.id, name: newName }
+  const userData = { id: userId.id, new_name: newName }
 
   const data = await fetch(
     `${process.env.REACT_APP_FEEDIFY_API}/user/update/name`,
