@@ -1,0 +1,50 @@
+@import url('../../../style/utils/line.css');
+
+.dashboard_feeds_tb .db_column_num,
+.dashboard_feeds_tb .db_column_title,
+.dashboard_feeds_tb .db_column_date,
+.dashboard_feeds_tb .db_column_url {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+
+  &:not(.db_column_num):not(.db_column_title) {
+    justify-content: center;
+  }
+}
+
+.db_column_num {
+  min-width: 20px;
+}
+
+.db_column_title {
+  flex: 1;
+  width: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.db_column_title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to right, transparent, inherit);
+  width: 30px;
+}
+
+.db_column_date {
+  min-width: 70px;
+}
+
+.db_column_url {
+  min-width: 50px;
+}
+
+.db_column_url button {
+  padding: 5px;
+  font-size: 0.8em;
+}

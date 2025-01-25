@@ -58,7 +58,13 @@ export default function ProfileName({ name }) {
             />
             <Button
               type="button"
-              onClick={() => setUpdating({ ...updating, status: false })}
+              onClick={() =>
+                setUpdating({
+                  ...updating,
+                  status: false,
+                  newName: updating.originalName,
+                })
+              }
             >
               cancel
             </Button>
