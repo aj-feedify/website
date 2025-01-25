@@ -5,6 +5,7 @@ button {
   border-radius: 10px;
   user-select: none;
   cursor: pointer;
+  line-height: 1;
 }
 
 button:hover {

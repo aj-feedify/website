@@ -8,6 +8,10 @@
   padding: 10px 0;
   border-bottom: 1px solid transparent;
 
+  & button {
+    font-size: 0.8em;
+  }
+
   &:hover {
     border-color: var(--input-bd-color);
 

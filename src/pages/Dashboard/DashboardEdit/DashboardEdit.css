@@ -1,0 +1,32 @@
+.dashboard_edit_input {
+  position: sticky;
+  top: 80px;
+  background-color: var(--bg-opa-color);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard_edit_textarea {
+  field-sizing: content;
+}
+
+.dashboard_edit_btn {
+  position: sticky;
+  bottom: 10px;
+  background-color: var(--bg-opa-color);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard_edit_btn::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: var(--bg-color);
+}
+
+.dashboard_edit_error {
+  color: var(--red-text-color);
+  text-align: center;
+}

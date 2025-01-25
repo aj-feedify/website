@@ -1,0 +1,9 @@
+.db_tb_header {
+  position: sticky;
+  top: 80px;
+  padding: 0 5px;
+  color: var(--text-opa-color);
+  background-color: var(--bg-opa-color);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}

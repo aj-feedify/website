@@ -60,7 +60,7 @@ export async function updateUserName(newName) {
   return await data.json()
 }
 
-function getUserId() {
+export function getUserId() {
   const localUserId = readFromLocalDb('user_id')
   if (!localUserId) {
     return { ok: false, message: 'User ID not found' }

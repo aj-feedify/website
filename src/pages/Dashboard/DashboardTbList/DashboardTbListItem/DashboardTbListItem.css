@@ -1,0 +1,31 @@
+.db_tb_list_item {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.db_tb_list_item:nth-child(even) {
+  background-color: var(--db-tb-list-even-item-bg-color);
+}
+
+.db_tb_list_item_con {
+  padding: 5px 8px;
+  border-radius: 10px;
+  flex: 1;
+  width: 1px;
+  cursor: pointer;
+}
+
+.db_tb_list_item_con:hover {
+  background-color: var(--db-tb-list-item-hover-bg-color);
+}
+
+.db_tb_list_item .db_column_num,
+.db_tb_list_item .db_column_date {
+  font-size: 0.8em !important;
+  color: var(--text-opa-color);
+}
+
+:root {
+  --db-tb-list-even-item-bg-color: light-dark(#d5d5d5, #313131);
+  --db-tb-list-item-hover-bg-color: light-dark(#c5c5c5, #4e4e4e);
+}
