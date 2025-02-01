@@ -25,6 +25,8 @@ export default function FeedPreview({ feed }) {
     const feedToShare = {
       title: feed.title,
     }
+    if (responses.data.length)
+      feedToShare.text = `Feed has ${responses.data.length} responses`
 
     await shareFeed(feedToShare)
   }
