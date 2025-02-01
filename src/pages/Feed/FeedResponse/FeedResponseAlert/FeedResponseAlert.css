@@ -1,0 +1,7 @@
+.feed_response_alert_error_text {
+  color: var(--red-text-color);
+}
+
+.feed_response_alert_btn {
+  width: 100%;
+}

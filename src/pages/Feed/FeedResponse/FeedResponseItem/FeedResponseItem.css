@@ -1,0 +1,14 @@
+.feed_response_item_con {
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.feed_response_item_date {
+  color: var(--text-opa-color);
+  font-size: 0.9em;
+}
+
+.feed_response_item_text {
+  margin: 0;
+}
