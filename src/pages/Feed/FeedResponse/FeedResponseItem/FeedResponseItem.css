@@ -11,4 +11,5 @@
 
 .feed_response_item_text {
   margin: 0;
+  text-wrap: auto;
 }
