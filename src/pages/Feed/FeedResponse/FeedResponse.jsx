@@ -50,7 +50,7 @@ export default function FeedResponse() {
             disabled={['loading', 'loaded'].includes(ai.status)}
             onClick={() => setAi({ ...ai, status: 'loading' })}
           >
-            summorize with <span className="feed_response_ai_text">Gemini</span>
+            summarize with <span className="feed_response_ai_text">Gemini</span>
           </Button>
         </div>
         <hr className="h" />
