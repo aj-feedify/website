@@ -3,3 +3,88 @@
   border-radius: 20px;
   padding: 15px;
 }
+
+.feed_response_colorful_border {
+  border: var(--feed-response-colorful-bd-size) solid transparent;
+  background: linear-gradient(
+        var(--bg-contrast-color),
+        var(--bg-contrast-color)
+      )
+      padding-box,
+    radial-gradient(
+        circle,
+        var(--feed-response-colorful-bd-color1),
+        var(--feed-response-colorful-bd-color2),
+        var(--feed-response-colorful-bd-color3),
+        var(--feed-response-colorful-bd-color4)
+      )
+      border-box;
+  background-size: 300% 300%;
+  transition: background-position 0.5s ease-in-out;
+
+  &:hover:not(.feed_response_ai_con):not(.h) {
+    background-position: 50% 100%;
+  }
+
+  &:active {
+    border-color: transparent;
+  }
+}
+
+.h {
+  --feed-response-colorful-bd-size: 1px;
+  background-position: 50% 100%;
+}
+
+.feed_response_ai_con {
+  --feed-response-colorful-bd-size: 2px;
+}
+
+.feed_response_colorful_border.anim {
+  animation: circularBorderAnimation 6s infinite linear;
+}
+
+.feed_response_ai_con .container_content:has(.loading_spinner) {
+  background-color: var(--bg-contrast-color);
+
+  & .loading_spinner {
+    border-color: var(--feed-response-colorful-text-color);
+  }
+}
+
+.feed_response_ai_text {
+  font-weight: bold;
+  color: var(--feed-response-colorful-text-color);
+}
+
+pre {
+  margin: 0;
+  text-wrap: auto;
+}
+
+.feed_response_summorize_btn {
+  padding: 5px 10px;
+  font-size: 0.8em;
+
+  &.opa_0 {
+    opacity: 0 !important;
+  }
+}
+
+@keyframes circularBorderAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 300% 300%;
+  }
+}
+
+:root {
+  --feed-response-colorful-bd-size: 1px;
+  --feed-response-colorful-bd-color1: light-dark(#e36bb7, #d11f90);
+  --feed-response-colorful-bd-color2: light-dark(#e183e0, #cb72c9);
+  --feed-response-colorful-bd-color3: light-dark(#e981c1, #d965ad);
+  --feed-response-colorful-bd-color4: light-dark(#e47cde, #f442e8);
+  --feed-response-colorful-text-color: light-dark(#c619ba, #e4a0df);
+}
