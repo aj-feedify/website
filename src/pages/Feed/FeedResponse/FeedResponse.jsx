@@ -9,7 +9,7 @@ import { getAIText } from '../../../scripts/ai/text'
 import './FeedResponse.css'
 
 export default function FeedResponse() {
-  const { feed, responses, setResponses } = useContext(FeedContext)
+  const { whoami, feed, responses, setResponses } = useContext(FeedContext)
   const [ai, setAi] = useState({ res: null, status: 'nothing' })
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function FeedResponse() {
       setAi({ ...ai, res: data, status: 'loaded' })
     }
 
-    if (ai.status === 'loading' && !ai.res) loadData()
+    if (ai.status === 'loading' && !ai.res && whoami === 'creator') loadData()
   }, [ai.status])
 
   if (responses.status === 'loading') return <Loading />
@@ -43,15 +43,18 @@ export default function FeedResponse() {
       <div className="feed_response_con list_y">
         <div className="d_f_jc_sb d_f_ai_ce">
           {responses.data.length} responses
-          <Button
-            className={`feed_response_colorful_border feed_response_summorize_btn ${
-              ai.status === 'loaded' ? 'opa_0' : ''
-            }`}
-            disabled={['loading', 'loaded'].includes(ai.status)}
-            onClick={() => setAi({ ...ai, status: 'loading' })}
-          >
-            summarize with <span className="feed_response_ai_text">Gemini</span>
-          </Button>
+          {whoami === 'creator' && (
+            <Button
+              className={`feed_response_colorful_border feed_response_summorize_btn ${
+                ai.status === 'loaded' ? 'opa_0' : ''
+              }`}
+              disabled={['loading', 'loaded'].includes(ai.status)}
+              onClick={() => setAi({ ...ai, status: 'loading' })}
+            >
+              summarize with{' '}
+              <span className="feed_response_ai_text">Gemini</span>
+            </Button>
+          )}
         </div>
         <hr className="h" />
         {ai.status !== 'nothing' && (

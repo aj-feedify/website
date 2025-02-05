@@ -33,7 +33,7 @@ export default function FeedPreview({ feed }) {
 
   return (
     <>
-      <FeedContext.Provider value={{ feed, responses, setResponses }}>
+      <FeedContext.Provider value={{ whoami, feed, responses, setResponses }}>
         <div className="list_y">
           <div className="feed_header list_y">
             <div className="d_f_jc_sb d_f_ai_ce">
